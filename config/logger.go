@@ -47,10 +47,10 @@ func NewLogger(prefix string) *Logger {
 	logger := log.New(writer, prefix, log.Ldate|log.Ltime)
 
 	return &Logger{
-		debug:   log.New(logger.Writer(), fmt.Sprintf(Purple+"DEBUG: On %v → "+Reset, logger.Prefix()), logger.Flags()),
-		info:    log.New(logger.Writer(), fmt.Sprintf(Cyan+"INFO: On %v → "+Reset, logger.Prefix()), logger.Flags()),
-		warning: log.New(logger.Writer(), fmt.Sprintf(Yellow+"WARNING: On %v → "+Reset, logger.Prefix()), logger.Flags()),
-		err:     log.New(logger.Writer(), fmt.Sprintf(Red+"ERROR: On %v → "+Reset, logger.Prefix()), logger.Flags()),
+		debug:   log.New(logger.Writer(), fmt.Sprintf(Purple+"DEBUG: On %v → ", logger.Prefix()), logger.Flags()),
+		info:    log.New(logger.Writer(), fmt.Sprintf(Cyan+"INFO: On %v → ", logger.Prefix()), logger.Flags()),
+		warning: log.New(logger.Writer(), fmt.Sprintf(Yellow+"WARNING: On %v → ", logger.Prefix()), logger.Flags()),
+		err:     log.New(logger.Writer(), fmt.Sprintf(Red+"ERROR: On %v → ", logger.Prefix()), logger.Flags()),
 		writer:  logger.Writer(),
 	}
 }

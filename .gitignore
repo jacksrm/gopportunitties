@@ -12,3 +12,7 @@
 
 # DB Folder
 db/
+
+# Hot reload
+tmp/
+.air.toml

@@ -1,4 +1,4 @@
-package handler
+package controller
 
 import (
 	"net/http"
@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func DeleteOpening(context *gin.Context) {
+func GetOpenings(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{
-		"message": "DELETE opening",
+		"message": "GET all openings",
 	})
 }

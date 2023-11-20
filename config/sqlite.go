@@ -3,7 +3,7 @@ package config
 import (
 	"os"
 
-	"github.com/jacksrm/gopportunitties/internal/opening/schema"
+	"github.com/jacksrm/gopportunitties/internal/opening/entity"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -23,7 +23,7 @@ func InitializeSqlite() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	err = db.AutoMigrate(&schema.Opening{})
+	err = db.AutoMigrate(&entity.Opening{})
 	if err != nil {
 		logger.Errorf("sqlite migration error: %v\n", err)
 		return nil, err

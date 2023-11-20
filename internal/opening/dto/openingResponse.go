@@ -1,20 +1,6 @@
-package schema
+package dto
 
-import (
-	"time"
-
-	"gorm.io/gorm"
-)
-
-type Opening struct {
-	gorm.Model
-	Role     string
-	Company  string
-	Location string
-	Remote   bool
-	Link     string
-	Salary   int64
-}
+import "time"
 
 type OpeningResponse struct {
 	ID        uint      `json:"id"`

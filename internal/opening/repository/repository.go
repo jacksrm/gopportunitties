@@ -1,12 +1,8 @@
 package repository
 
 import (
-	"github.com/jacksrm/gopportunitties/config"
 	"github.com/jacksrm/gopportunitties/internal/opening/entity"
-	"gorm.io/gorm"
 )
-
-var sqliteDB *gorm.DB = config.GetSqlite()
 
 type OpeningRepository interface {
 	FindAll() ([]entity.Opening, error)

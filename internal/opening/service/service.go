@@ -6,7 +6,15 @@ import (
 	"github.com/jacksrm/gopportunitties/internal/opening/repository"
 )
 
-func CreateOpening(data dto.CreateOpening, repo repository.OpeningRepository) (entity.Opening, error) {
+type Service struct {
+	repo repository.OpeningRepository
+}
+
+func New(repo repository.OpeningRepository) *Service {
+	return &Service{repo}
+}
+
+func (s Service) CreateOpening(data dto.CreateOpening) (entity.Opening, error) {
 	newOpening := entity.Opening{
 		Role:     data.Role,
 		Company:  data.Company,
@@ -16,7 +24,7 @@ func CreateOpening(data dto.CreateOpening, repo repository.OpeningRepository) (e
 		Salary:   data.Salary,
 	}
 
-	result, err := repo.Create(newOpening)
+	result, err := s.repo.Create(newOpening)
 
 	if err != nil {
 		return entity.Opening{}, err

@@ -26,3 +26,4 @@ In this project, I have used mainly the structural concepts of the NestJS Framew
 - Gin Swagger → [Gin Swagger Docs](github.com/swaggo/gin-swagger)
 - Swago → [Swago Docs](https://github.com/swaggo/swag/)
 - Sqlite
+- Gorm → [Gorm Docs](https://gorm.io/)

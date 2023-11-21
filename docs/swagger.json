@@ -81,6 +81,51 @@
                     }
                 }
             },
+            "put": {
+                "description": "Updates a opening",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "openings"
+                ],
+                "summary": "Update Opening",
+                "parameters": [
+                    {
+                        "description": "Data needed to update an opening",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.UpdateOpening"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Id of the opening to update",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    }
+                }
+            },
             "delete": {
                 "description": "Deletes an opening",
                 "consumes": [
@@ -192,6 +237,32 @@
                 },
                 "message": {
                     "type": "string"
+                }
+            }
+        },
+        "dto.UpdateOpening": {
+            "type": "object",
+            "properties": {
+                "company": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "link": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "remote": {
+                    "type": "boolean"
+                },
+                "role": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "salary": {
+                    "type": "integer"
                 }
             }
         }

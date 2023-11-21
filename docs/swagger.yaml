@@ -32,6 +32,24 @@ definitions:
       message:
         type: string
     type: object
+  dto.UpdateOpening:
+    properties:
+      company:
+        minLength: 10
+        type: string
+      link:
+        type: string
+      location:
+        minLength: 10
+        type: string
+      remote:
+        type: boolean
+      role:
+        minLength: 10
+        type: string
+      salary:
+        type: integer
+    type: object
 info:
   contact: {}
 paths:
@@ -108,6 +126,36 @@ paths:
           schema:
             $ref: '#/definitions/dto.RequestResponse'
       summary: Get Opening
+      tags:
+      - openings
+    put:
+      consumes:
+      - application/json
+      description: Updates a opening
+      parameters:
+      - description: Data needed to update an opening
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateOpening'
+      - description: Id of the opening to update
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+      summary: Update Opening
       tags:
       - openings
   /openings:

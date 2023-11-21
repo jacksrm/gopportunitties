@@ -10,8 +10,8 @@ type SqliteOpeningRepository struct {
 	db *gorm.DB
 }
 
-func New() SqliteOpeningRepository {
-	return SqliteOpeningRepository{config.GetSqlite()}
+func New() *SqliteOpeningRepository {
+	return &SqliteOpeningRepository{config.GetSqlite()}
 }
 
 func (s SqliteOpeningRepository) FindAll() ([]entity.Opening, error) {
@@ -25,7 +25,7 @@ func (s SqliteOpeningRepository) FindAll() ([]entity.Opening, error) {
 	return openings, nil
 }
 
-func (s SqliteOpeningRepository) FindById(id uint) (entity.Opening, error) {
+func (s SqliteOpeningRepository) FindById(id uint64) (entity.Opening, error) {
 	var opening entity.Opening
 	result := s.db.First(&opening, id)
 

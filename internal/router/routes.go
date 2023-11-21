@@ -8,11 +8,11 @@ import (
 func initializeRoutes(router *gin.Engine) {
 	v1 := router.Group("/api/v1/")
 
-	openingM := opening.New()
+	opening := opening.New()
 
-	v1.GET("/openings", openingM.Controller.GetOpenings)
-	v1.POST("/opening", openingM.Controller.CreateOpening)
-	v1.DELETE("/opening/:id", openingM.Controller.DeleteOpening)
-	v1.PUT("/opening/:id", openingM.Controller.UpdateOpening)
-	v1.GET("/opening/:id", openingM.Controller.GetOpening)
+	v1.GET("/openings", opening.Controller.GetAll)
+	v1.GET("/opening/:id", opening.Controller.Get)
+	v1.POST("/opening", opening.Controller.Create)
+	v1.PUT("/opening/:id", opening.Controller.Update)
+	v1.DELETE("/opening/:id", opening.Controller.Delete)
 }

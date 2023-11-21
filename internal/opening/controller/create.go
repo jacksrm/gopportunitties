@@ -16,7 +16,6 @@ import (
 // @Success 201 {object} dto.RequestResponse
 // @Failure 400 {object} dto.RequestResponse
 // @Router /opening [post]
-
 func (c *Controller) Create(context *gin.Context) {
 	const operationName = "CreateOpening"
 	data := dto.CreateOpening{}

@@ -9,6 +9,17 @@ import (
 	"github.com/jacksrm/gopportunitties/internal/opening/dto"
 )
 
+// @BasePath /api/v1/
+
+// @Summary Delete Opening
+// @Description Deletes an opening
+// @Tags openings
+// @Accept json
+// @Produce json
+// @Param id path string true "Id of the opening to delete"
+// @Success 200 {object} dto.RequestResponse
+// @Failure 400 {object} dto.RequestResponse
+// @Router /opening/:id [delete]
 func (c *Controller) Delete(context *gin.Context) {
 	const operationName = "DeleteOpening"
 	id := context.Param("id")

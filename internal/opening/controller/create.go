@@ -8,7 +8,7 @@ import (
 	"github.com/jacksrm/gopportunitties/internal/opening/dto"
 )
 
-// @BasePath /api/v1/openings
+// @BasePath /api/v1/
 
 // @Summary Create Opening
 // @Description Creates a new opening

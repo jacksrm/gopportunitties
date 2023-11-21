@@ -26,6 +26,7 @@ docs:
 clean:
 	@rm -rf $(APP_NAME)
 	@rm -rf ./docs
+	@rm -rf ./tmp
 
 tidy:
 	@go mod tidy

@@ -3,5 +3,94 @@
     "info": {
         "contact": {}
     },
-    "paths": {}
+    "paths": {
+        "/opening": {
+            "post": {
+                "description": "Creates a new opening",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "openings"
+                ],
+                "summary": "Create Opening",
+                "parameters": [
+                    {
+                        "description": "Data needed to create an opening",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.CreateOpening"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dto.CreateOpening": {
+            "type": "object",
+            "required": [
+                "company",
+                "link",
+                "location",
+                "remote",
+                "role",
+                "salary"
+            ],
+            "properties": {
+                "company": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "link": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "remote": {
+                    "type": "boolean"
+                },
+                "role": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "salary": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.RequestResponse": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "error": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

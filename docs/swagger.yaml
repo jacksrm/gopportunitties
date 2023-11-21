@@ -1,4 +1,64 @@
+definitions:
+  dto.CreateOpening:
+    properties:
+      company:
+        minLength: 10
+        type: string
+      link:
+        type: string
+      location:
+        minLength: 10
+        type: string
+      remote:
+        type: boolean
+      role:
+        minLength: 10
+        type: string
+      salary:
+        type: integer
+    required:
+    - company
+    - link
+    - location
+    - remote
+    - role
+    - salary
+    type: object
+  dto.RequestResponse:
+    properties:
+      data: {}
+      error:
+        type: boolean
+      message:
+        type: string
+    type: object
 info:
   contact: {}
-paths: {}
+paths:
+  /opening:
+    post:
+      consumes:
+      - application/json
+      description: Creates a new opening
+      parameters:
+      - description: Data needed to create an opening
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateOpening'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+      summary: Create Opening
+      tags:
+      - openings
 swagger: "2.0"

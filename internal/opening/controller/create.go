@@ -9,10 +9,13 @@ import (
 )
 
 // @BasePath /api/v1/openings
-// @Description Create a new opening
+
+// @Summary Create Opening
+// @Description Creates a new opening
+// @Tags openings
 // @Accept json
 // @Produce json
-// @Param opening body dto.CreateOpening true "Opening object that needs to be added"
+// @Param request body dto.CreateOpening true "Data needed to create an opening"
 // @Success 201 {object} dto.RequestResponse
 // @Failure 400 {object} dto.RequestResponse
 // @Router /opening [post]

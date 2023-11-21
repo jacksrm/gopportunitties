@@ -19,7 +19,7 @@ import (
 // @Param id path string true "Id of the opening to delete"
 // @Success 200 {object} dto.RequestResponse
 // @Failure 400 {object} dto.RequestResponse
-// @Router /opening/:id [delete]
+// @Router /opening/{id} [delete]
 func (c *Controller) Delete(context *gin.Context) {
 	const operationName = "DeleteOpening"
 	id := context.Param("id")

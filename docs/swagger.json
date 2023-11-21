@@ -117,6 +117,35 @@
                     }
                 }
             }
+        },
+        "/openings": {
+            "get": {
+                "description": "Gets all openings",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "openings"
+                ],
+                "summary": "Get All Openings",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

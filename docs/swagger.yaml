@@ -110,4 +110,23 @@ paths:
       summary: Get Opening
       tags:
       - openings
+  /openings:
+    get:
+      consumes:
+      - application/json
+      description: Gets all openings
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+      summary: Get All Openings
+      tags:
+      - openings
 swagger: "2.0"

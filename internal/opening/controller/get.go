@@ -9,6 +9,17 @@ import (
 	"github.com/jacksrm/gopportunitties/internal/opening/dto"
 )
 
+// @BasePath /api/v1/
+
+// @Summary Get Opening
+// @Description Gets an opening
+// @Tags openings
+// @Accept json
+// @Produce json
+// @Param id path string true "Id of the opening to get"
+// @Success 200 {object} dto.RequestResponse
+// @Failure 400 {object} dto.RequestResponse
+// @Router /opening/{id} [get]
 func (c *Controller) Get(context *gin.Context) {
 	const operationName = "GetOpening"
 	id := context.Param("id")

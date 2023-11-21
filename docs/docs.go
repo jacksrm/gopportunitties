@@ -55,7 +55,43 @@ const docTemplate = `{
                 }
             }
         },
-        "/opening/:id": {
+        "/opening/{id}": {
+            "get": {
+                "description": "Gets an opening",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "openings"
+                ],
+                "summary": "Get Opening",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id of the opening to get",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RequestResponse"
+                        }
+                    }
+                }
+            },
             "delete": {
                 "description": "Deletes an opening",
                 "consumes": [

@@ -61,7 +61,7 @@ paths:
       summary: Create Opening
       tags:
       - openings
-  /opening/:id:
+  /opening/{id}:
     delete:
       consumes:
       - application/json
@@ -84,6 +84,30 @@ paths:
           schema:
             $ref: '#/definitions/dto.RequestResponse'
       summary: Delete Opening
+      tags:
+      - openings
+    get:
+      consumes:
+      - application/json
+      description: Gets an opening
+      parameters:
+      - description: Id of the opening to get
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.RequestResponse'
+      summary: Get Opening
       tags:
       - openings
 swagger: "2.0"
